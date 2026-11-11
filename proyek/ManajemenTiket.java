@@ -6,9 +6,10 @@ public class ManajemenTiket {
     private HashMap<String, Tiket> daftarTiket = new HashMap<>();
 
     public ManajemenTiket() {
-        daftarTiket.put("VIP", new Tiket("VIP", 500000, 50));
-        daftarTiket.put("Festival", new Tiket("Festival", 250000, 100));
-        daftarTiket.put("Early Bird", new Tiket("Early Bird", 150000, 75));
+        // buat objek dari class turunan
+        daftarTiket.put("VIP", new TiketVIP());
+        daftarTiket.put("Festival", new TiketFestival());
+        daftarTiket.put("Early Bird", new TiketEarlyBird());
     }
 
     public Tiket getTiket(String kategori) {
@@ -26,8 +27,15 @@ public class ManajemenTiket {
         return false;
     }
 
+    // menggunakan polimorfism
     public int hitungTotal(String kategori, int jumlah) {
-        return daftarTiket.get(kategori).getHarga() * jumlah;
+        Tiket tiket = daftarTiket.get(kategori);
+
+        if (tiket != null && jumlah > 0) {
+            return tiket.hitungHarga() * jumlah;
+        }
+
+        return 0;
     }
 
     public HashMap<String, Tiket> getDaftarTiket() {

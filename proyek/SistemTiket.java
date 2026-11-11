@@ -17,8 +17,8 @@ public class SistemTiket extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel(new BorderLayout(10, 10));
-        panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        JPanel panel = new JPanel(new BorderLayout(10, 15));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JLabel judul = new JLabel(
             "SISTEM PENJUALAN TIKET KONSER",
@@ -28,7 +28,7 @@ public class SistemTiket extends JFrame {
         judul.setFont(new Font("Arial", Font.BOLD, 18));
         panel.add(judul, BorderLayout.NORTH);
 
-        JPanel inputPanel = new JPanel(new GridLayout(3, 2, 10, 10));
+        JPanel inputPanel = new JPanel(new GridLayout(3, 2, 10, 15));
 
         inputPanel.add(new JLabel("Kategori Tiket:"));
 
@@ -49,13 +49,17 @@ public class SistemTiket extends JFrame {
         inputPanel.add(beli);
         inputPanel.add(tampil);
 
-        panel.add(inputPanel, BorderLayout.CENTER);
+        JPanel contentPanel = new JPanel(new BorderLayout(10, 15));
+        contentPanel.add(inputPanel, BorderLayout.NORTH);
 
         output = new JTextArea();
         output.setEditable(false);
+        output.setFont(new Font("Monospace", Font.PLAIN, 13));
 
         JScrollPane scroll = new JScrollPane(output);
-        panel.add(scroll, BorderLayout.SOUTH);
+        contentPanel.add(scroll, BorderLayout.CENTER);
+
+        panel.add(contentPanel, BorderLayout.CENTER);
 
         add(panel);
 
@@ -66,7 +70,6 @@ public class SistemTiket extends JFrame {
     }
 
     private void beliTiket() {
-
         String kategori = pilihTiket.getSelectedItem().toString();
 
         try {
@@ -82,7 +85,6 @@ public class SistemTiket extends JFrame {
             Tiket tiket = manajemen.getTiket(kategori);
 
             if (manajemen.beliTiket(kategori, jumlahBeli)) {
-
                 int total = manajemen.hitungTotal(kategori, jumlahBeli);
 
                 output.setText(
@@ -90,6 +92,7 @@ public class SistemTiket extends JFrame {
                     "Kategori: " + kategori + "\n" +
                     "Jumlah: " + jumlahBeli + "\n" +
                     "Harga: Rp " + tiket.getHarga() + "\n" +
+                    "Fasilitas: " + tiket.getFasilitas() + "\n" +
                     "Total: Rp " + total + "\n" +
                     "Sisa Stok: " + tiket.getStok()
                 );
@@ -108,7 +111,6 @@ public class SistemTiket extends JFrame {
     }
 
     private void tampilkanStok() {
-
         output.setText("=== DAFTAR STOK TIKET ===\n\n");
 
         for (Tiket tiket : manajemen.getDaftarTiket().values()) {
@@ -116,6 +118,7 @@ public class SistemTiket extends JFrame {
             output.append(
                 "Kategori: " + tiket.getKategori() + "\n" +
                 "Harga: Rp " + tiket.getHarga() + "\n" +
+                "Fasilitas: " + tiket.getFasilitas() + "\n" +
                 "Stok: " + tiket.getStok() + "\n\n"
             );
         }

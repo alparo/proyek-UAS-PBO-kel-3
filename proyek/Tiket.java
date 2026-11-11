@@ -1,5 +1,6 @@
 package proyek;
-public class Tiket {
+
+public abstract class Tiket {
     private String kategori;
     private int harga;
     private int stok;
@@ -23,6 +24,12 @@ public class Tiket {
     }
 
     public void kurangiStok(int jumlah) {
-        stok -= jumlah;
+        if (jumlah > 0 && jumlah <= stok) {
+            stok -= jumlah;
+        }
     }
+
+    public abstract String getFasilitas();
+
+    public abstract int hitungHarga();
 }
