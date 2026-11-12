@@ -1,5 +1,10 @@
-package proyek;
+package proyek.src;
 import java.util.HashMap;
+
+import proyek.src.model.Tiket;
+import proyek.src.model.TiketEarlyBird;
+import proyek.src.model.TiketFestival;
+import proyek.src.model.TiketVIP;
 
 public class ManajemenTiket {
 

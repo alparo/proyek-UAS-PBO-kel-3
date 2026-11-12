@@ -1,4 +1,4 @@
-package proyek;
+package proyek.src.model;
 
 public class TiketVIP extends Tiket {
     public TiketVIP() {

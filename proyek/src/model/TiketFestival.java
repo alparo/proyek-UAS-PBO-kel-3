@@ -1,4 +1,4 @@
-package proyek;
+package proyek.src.model;
 
 public class TiketFestival extends Tiket {
     public TiketFestival() {

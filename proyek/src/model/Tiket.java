@@ -1,4 +1,4 @@
-package proyek;
+package proyek.src.model;
 
 public abstract class Tiket {
     private String kategori;

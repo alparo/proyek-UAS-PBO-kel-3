@@ -1,4 +1,4 @@
-package proyek;
+package proyek.src;
 import javax.swing.SwingUtilities;
 
 public class Main {

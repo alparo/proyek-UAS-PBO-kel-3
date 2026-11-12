@@ -1,5 +1,8 @@
-package proyek;
+package proyek.src;
 import javax.swing.*;
+
+import proyek.src.model.Tiket;
+
 import java.awt.*;
 
 public class SistemTiket extends JFrame {

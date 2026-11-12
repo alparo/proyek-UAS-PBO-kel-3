@@ -1,4 +1,4 @@
-package proyek;
+package proyek.src.model;
 
 public class TiketEarlyBird extends Tiket {
     public TiketEarlyBird() {
