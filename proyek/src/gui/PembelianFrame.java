@@ -1,19 +1,20 @@
-package proyek.src;
+package proyek.src.gui;
 import javax.swing.*;
 
+import proyek.src.service.TiketService;
 import proyek.src.model.Tiket;
 
 import java.awt.*;
 
-public class SistemTiket extends JFrame {
+public class PembelianFrame extends JFrame {
 
-    private ManajemenTiket manajemen = new ManajemenTiket();
+    private TiketService manajemen = new TiketService();
 
     private JComboBox<String> pilihTiket;
     private JTextField jumlah;
     private JTextArea output;
 
-    public SistemTiket() {
+    public PembelianFrame() {
 
         setTitle("Sistem Penjualan Tiket Konser");
         setSize(500, 450);
