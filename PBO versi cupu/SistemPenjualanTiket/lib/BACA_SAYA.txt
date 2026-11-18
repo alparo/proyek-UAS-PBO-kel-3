@@ -1,0 +1,3 @@
+Taruh file driver MySQL di folder ini, contoh: mysql-connector-j-8.4.0.jar
+Unduh: https://dev.mysql.com/downloads/connector/j/  (pilih "Platform Independent" -> ZIP, ambil file .jar di dalamnya)
+Tanpa driver ini aplikasi tetap jalan dalam MODE MEMORI (data contoh, tidak tersimpan permanen).
